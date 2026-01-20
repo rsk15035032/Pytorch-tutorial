@@ -10,3 +10,5 @@
 
 5. Build the first Sample Nural Network.
 
+6. Build basics CNN Model.
+
