@@ -29,14 +29,14 @@ class RNN(nn.Module):
         super(RNN, self).__init__()
         self.hidden_size = hidden_size
         self.num_layers = num_layers
-        self.rnn = nn.RNN(input_size, hidden_size, num_layers, batch_first = True)
+        self.gru = nn.GRU(input_size, hidden_size, num_layers, batch_first = True)
         self.fc = nn.Linear(hidden_size*sequence_length, num_classes)
 
     def forward(self, x):
         h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(device)
 
         # forward propagation
-        out, _ = self.rnn(x, h0)
+        out, _ = self.gru(x, h0)
         out = out.reshape(out.shape[0], -1)
         out = self.fc(out)
         return out
