@@ -15,3 +15,5 @@
 
 8. Using Bidirectional LSTM.
 
+9. Save  and load model in Checkpoits.
+
