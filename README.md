@@ -17,3 +17,5 @@
 
 9. Save  and load model in Checkpoits.
 
+10. Fine tuning and Transfer Learning of pretrained VGG16 model.
+
