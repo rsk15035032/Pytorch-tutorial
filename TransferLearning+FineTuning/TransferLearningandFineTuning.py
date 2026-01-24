@@ -8,6 +8,7 @@ from torch.utils.data import DataLoader
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 import torchvision
+from tqdm import tqdm
 
 
 
@@ -23,18 +24,20 @@ num_epochs = 5
 
 
 
-class Identity(nn.Module):
-    def __init__(self):
-        super(Identity,self).__init__()
-
-    def forward(self, x):
-        return x
-
 # Load pretrained and modified it.
-model = torchvision.models.vgg16(pretrained = True)
-model.avgpool = Identity()
-model.classifier = nn.Linear(512, 10)
+model = torchvision.models.vgg16(weights="DEFAULT")
+
+# If you want to do finetuning then set requires_grad = False
+# Remove these two lines if you want to train entire model,
+# and only want to load the pretrain weights.
+
+for param in model.parameters():
+    param.requires_grad = False
+
+model.avgpool = nn.Identity()
+model.classifier = nn.Sequential(nn.Linear(512, 100), nn.ReLU(), nn.Linear(100, num_classes))
 model.to(device)
+
 
 #Load data
 train_dataset = datasets.CIFAR10(root= 'dataset/',train= True, transform=transforms.ToTensor(),download=True )
@@ -48,7 +51,9 @@ optimizer = optim.Adam(model.parameters(), lr = learning_rate)
 #train networks
 
 for epoch in range(num_epochs):
-    for batch_idx, (data, targets) in enumerate(train_loader):
+    losses = []
+
+    for batch_idx, (data, targets) in enumerate(tqdm(train_loader)):
         # Get data to cuda if possible
         data = data.to(device=device)
         targets= targets.to(device=device)
@@ -57,12 +62,16 @@ for epoch in range(num_epochs):
         scores = model(data)
         loss = criterion(scores, targets)
 
+        losses.append(loss.item())
+
         # backwards
         optimizer.zero_grad()
         loss.backward()
 
         # gradient descent or Adam steps
         optimizer.step()
+
+    print(f"Cost at epoch {epoch} is {sum(losses)/len(losses):.5f}")
 
 # Check accuracy on train and test sets to see how good our model is.
 def check_accuracy(loader, model):
