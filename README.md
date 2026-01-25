@@ -19,3 +19,5 @@
 
 10. Fine tuning and Transfer Learning of pretrained VGG16 model.
 
+11. Build Custom datasets and load on googlenet.
+
