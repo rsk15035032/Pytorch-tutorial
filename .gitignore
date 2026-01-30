@@ -1,5 +1,11 @@
+# Ignoring dataset folder because of huge memory size.
 dataset/
 
+# Ignoring the checkpoints 
 my_checkpoint.pth.tar
 
+# Ignoring the python cache.
 __pycache__
+
+# Ignoring the flickr8k dataset due to huge memory size.
+flickr8k
