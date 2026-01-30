@@ -1,4 +1,4 @@
-📘 This you find the end-to-end implementation of Pytorch in the DeepLearing. The topics are cover below:
+### 📘 This you find the end-to-end implementation of Pytorch in the DeepLearing. The topics are cover below:
 1. Initializing Tensors (tensor_1.py)
 
 2. Tensor Math & Comparison Operations(tensor_2.py)
@@ -20,4 +20,6 @@
 10. Fine tuning and Transfer Learning of pretrained VGG16 model.
 
 11. Build Custom datasets and load on googlenet.
+
+12. Build the custom dataset loading for image captioning on flickr8k.
 
