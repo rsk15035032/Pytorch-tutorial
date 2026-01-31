@@ -23,3 +23,5 @@
 
 12. Build the custom dataset loading for image captioning on flickr8k.
 
+13. Data Augmentation of images using the torchvision.
+
