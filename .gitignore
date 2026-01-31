@@ -9,3 +9,6 @@ __pycache__
 
 # Ignoring the flickr8k dataset due to huge memory size.
 flickr8k
+
+# Ignoring the augumented images.
+img*.png
