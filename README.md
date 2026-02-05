@@ -25,3 +25,5 @@
 
 13. Data Augmentation of images using the torchvision.
 
+14. Apply albumentation on the image.
+
