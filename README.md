@@ -9,17 +9,17 @@
 
 5. [Build the first Sample Nural Network.](nuralNetwork.py)
 
-6. [Build basics CNN Model.](CNN\cnn.py)
+6. [Build basics CNN Model.](CNN/cnn.py)
 
-7. [Build basic RNN Model.](RNN\rnn.py)
+7. [Build basic RNN Model.](RNN/rnn.py)
 
-8. [Using Bidirectional LSTM.](RNN\BidirectionalLSTM.py)
+8. [Using Bidirectional LSTM.](RNN/BidirectionalLSTM.py)
 
-9. [Save  and load model in Checkpoits.](CNN\loadSave.py)
+9. [Save  and load model in Checkpoits.](CNN/loadSave.py)
 
-10. [Fine tuning and Transfer Learning of pretrained VGG16 model.](TransferLearning+FineTuning\TransferLearningandFineTuning.py)
+10. [Fine tuning and Transfer Learning of pretrained VGG16 model.](TransferLearning+FineTuning/TransferLearningandFineTuning.py)
 
-11. [Import data and train on pretrained Vgg16 of googlenet.](Build_Custom_Datasets\ImportData.py)
+11. [Import data and train on pretrained Vgg16 of googlenet.](Build_Custom_Datasets/ImportData.py)
 
 12. [Build the custom dataset loading for image captioning on flickr8k.](Build_custom_textDatasets/text_data.py)
 
