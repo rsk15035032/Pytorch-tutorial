@@ -12,3 +12,6 @@ flickr8k
 
 # Ignoring the augumented images.
 img*.png
+
+# Ignoring datasets for albumentation.
+cat_dogs/
