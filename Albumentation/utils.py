@@ -1,4 +1,5 @@
 import random
+import math
 import cv2
 from matplotlib import pyplot as plt
 import matplotlib.patches as patches
@@ -13,18 +14,21 @@ def visualize(image):
     plt.show()
 
 
-def plot_examples(images, bboxes=None):
-    fig = plt.figure(figsize=(15, 15))
-    columns = 4
-    rows = 5
+def plot_examples(images, bboxes=None, columns=4):
+    total = len(images)
+    rows = math.ceil(total / columns)
 
-    for i in range(1, len(images)):
+    fig = plt.figure(figsize=(columns * 4, rows * 4))
+
+    for i, img in enumerate(images, start=1):
         if bboxes is not None:
-            img = visualize_bbox(images[i - 1], bboxes[i - 1], class_name="shahrukh")
-        else:
-            img = images[i - 1]
-        fig.add_subplot(rows, columns, i)
-        plt.imshow(img)
+            img = visualize_bbox(img, bboxes[i - 1], class_name="shahrukh")
+
+        ax = fig.add_subplot(rows, columns, i)
+        ax.imshow(img)
+        ax.axis("off")
+
+    plt.tight_layout()
     plt.show()
 
 
