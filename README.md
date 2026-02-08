@@ -27,3 +27,5 @@
 
 14. [Apply albumentation on the image.](Albumentation)
 
+15. [Method dealing with imbalaced datasets using oversampling and class weighting.](Imbalanced_classes/main.py)
+
