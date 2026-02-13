@@ -15,3 +15,6 @@ img*.png
 
 # Ignoring datasets for albumentation.
 cat_dogs/
+
+# Ignoring tensor-board cache logs.
+runs/
