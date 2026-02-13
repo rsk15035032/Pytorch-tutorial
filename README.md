@@ -15,7 +15,7 @@
 
 8. [Using Bidirectional LSTM.](RNN/BidirectionalLSTM.py)
 
-9. [Save  and load model in Checkpoits.](CNN/loadSave.py)
+9. [Save  and load model in Checkpoints.](CNN/loadSave.py)
 
 10. [Fine tuning and Transfer Learning of pretrained VGG16 model.](TransferLearning+FineTuning/TransferLearningandFineTuning.py)
 
@@ -28,4 +28,6 @@
 14. [Apply albumentation on the image.](Albumentation)
 
 15. [Method dealing with imbalaced datasets using oversampling and class weighting.](Imbalanced_classes/main.py)
+
+16. [Run the Tensorboard to evaluate the model on MNIST dataset.](Tensorboad/main.py)
 
