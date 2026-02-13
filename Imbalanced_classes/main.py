@@ -24,11 +24,6 @@ dataset and the weighted random sampler.
 The main function then uses the data loader to iterate over the dataset for 10 epochs, 
 and counts the number of samples in each class. Finally, it prints the counts for each class.
 
-Programmed by Aladdin Persson <aladdin.persson at hotmail dot com>
-* 2020-04-08: Initial coding
-* 2021-03-24: Added more detailed comments also removed part of
-              check_accuracy which would only work specifically on MNIST.
-* 2022-12-19: Updated detailed comments, small code revision, checked code still works with latest PyTorch. 
 """
 
 import torch
