@@ -29,5 +29,5 @@
 
 15. [Method dealing with imbalaced datasets using oversampling and class weighting.](Imbalanced_classes/main.py)
 
-16. [Run the Tensorboard to evaluate the model on MNIST dataset.](Tensorboad/main.py)
+16. [Run the Tensorboard to evaluate the model on MNIST dataset.](Tensorboard/main.py)
 
