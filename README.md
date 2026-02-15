@@ -31,6 +31,8 @@
 
 16. [Run the Tensorboard to evaluate the model on MNIST dataset.](Tensorboard/main.py)
 
-17. [Implementation of Lenet architech from scratch](cnn_architectures/lenet/lenet5_pytorch.py)
+17. [Implementation of Lenet architech from scratch.](cnn_architectures/lenet/lenet5_pytorch.py)
 
-18. [Implementation of VGG16 as well as generalize VGG architecture from scratch](cnn_architectures/VGG/vgg_pytorch.py)
+18. [Implementation of VGG16 as well as generalize VGG architecture from scratch.](cnn_architectures/VGG/vgg_pytorch.py)
+
+19. [Implementation of GoogLeNet/InceptionNet from scratch.](cnn_architectures/InceptionNet/InceptionNet_pytorch.py)
