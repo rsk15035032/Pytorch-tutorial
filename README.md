@@ -36,3 +36,5 @@
 18. [Implementation of VGG16 as well as generalize VGG architecture from scratch.](cnn_architectures/VGG/vgg_pytorch.py)
 
 19. [Implementation of GoogLeNet/InceptionNet from scratch.](cnn_architectures/InceptionNet/InceptionNet_pytorch.py)
+
+20. [Implementation of ResNet from scratch.](cnn_architectures/ResNet/ResNet_pytorch.py)
