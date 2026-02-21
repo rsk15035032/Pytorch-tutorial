@@ -38,3 +38,5 @@
 19. [Implementation of GoogLeNet/InceptionNet from scratch.](cnn_architectures/InceptionNet/InceptionNet_pytorch.py)
 
 20. [Implementation of ResNet from scratch.](cnn_architectures/ResNet/ResNet_pytorch.py)
+
+21. [Implementation of EfficientNet from scratch.](cnn_architectures/EfficientNet/efficientNet_pytorch.py)
