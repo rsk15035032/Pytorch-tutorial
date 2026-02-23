@@ -40,3 +40,5 @@
 20. [Implementation of ResNet from scratch.](cnn_architectures/ResNet/ResNet_pytorch.py)
 
 21. [Implementation of EfficientNet from scratch.](cnn_architectures/EfficientNet/efficientNet_pytorch.py)
+
+22. [Implementation of Image Captioning from scratch.](Image_Captioning)
