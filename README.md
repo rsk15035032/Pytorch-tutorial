@@ -42,3 +42,5 @@
 21. [Implementation of EfficientNet from scratch.](cnn_architectures/EfficientNet/efficientNet_pytorch.py)
 
 22. [Implementation of Image Captioning from scratch.](Image_Captioning)
+
+23. [Implementation of Neral style transfer using Pytorch.](nuralStyle)
