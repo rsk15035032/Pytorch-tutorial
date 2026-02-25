@@ -18,3 +18,4 @@ cat_dogs/
 
 # Ignoring tensor-board cache logs.
 runs/
+logs/
