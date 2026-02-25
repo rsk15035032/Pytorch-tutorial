@@ -44,3 +44,5 @@
 22. [Implementation of Image Captioning from scratch.](Image_Captioning)
 
 23. [Implementation of Neral style transfer using Pytorch.](nuralStyle)
+
+24. [Implementation of Simple GAN from scratch.](GANs/simpleGAN/simpleGAN.py)
