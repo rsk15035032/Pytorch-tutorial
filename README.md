@@ -45,4 +45,4 @@
 
 23. [Implementation of Neral style transfer using Pytorch.](nuralStyle)
 
-24. [Implementation of Simple GAN from scratch.](GANs/simpleGAN/simpleGAN.py)
+24. [Implementation of Simple GAN from scratch.](GANs/SimpleGAN/simpleGAN.py)
