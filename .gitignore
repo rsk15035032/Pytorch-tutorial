@@ -1,5 +1,6 @@
 # Ignoring dataset folder because of huge memory size.
 dataset/
+Celebrity Faces Dataset/
 
 # Ignoring the checkpoints 
 my_checkpoint.pth.tar
