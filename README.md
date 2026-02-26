@@ -46,3 +46,5 @@
 23. [Implementation of Neral style transfer using Pytorch.](nuralStyle)
 
 24. [Implementation of Simple GAN from scratch.](GANs/SimpleGAN/simpleGAN.py)
+
+25. [Implementation of DCGAN from scratch.](GANs/DCGAN)
