@@ -48,3 +48,5 @@
 24. [Implementation of Simple GAN from scratch.](GANs/SimpleGAN/simpleGAN.py)
 
 25. [Implementation of DCGAN from scratch.](GANs/DCGAN)
+
+26.[Implementation of Wasserstein Generative Adversarial Networks (WGANs) from scratch.](GANs/WGAN/)
