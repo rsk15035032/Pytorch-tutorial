@@ -27,7 +27,7 @@ CRITIC_ITERATIONS = 5
 WEIGHT_CLIP = 0.01
 
 '''
-#### For better traing on CPU we can consider the following parameters.
+#### For better training on CPU we can consider the following parameters.
 LEARNING_RATE = 5e-5      # Keep same (stable for WGAN)
 BATCH_SIZE = 16          # 🔥 Reduce from 64 → 16
 IMAGE_SIZE = 64          # Keep 64 (or reduce to 32 for faster)
