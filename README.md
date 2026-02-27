@@ -50,3 +50,5 @@
 25. [Implementation of DCGAN from scratch.](GANs/DCGAN)
 
 26.[Implementation of Wasserstein Generative Adversarial Networks (WGANs) from scratch.](GANs/WGAN/)
+
+27. [Implementation of Wasserstein Generative Adversarial Networks (WGANs) with gradient penality from scratch.](GANs/WGAN-GP/)
