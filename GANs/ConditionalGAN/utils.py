@@ -1,0 +1,28 @@
+import torch
+from torch import autograd
+
+
+# -----------------------------
+# Gradient Penalty
+# -----------------------------
+def gradient_penalty(critic, real, fake, labels, device):
+    batch_size, C, H, W = real.shape
+    epsilon = torch.rand((batch_size, 1, 1, 1)).repeat(1, C, H, W).to(device)
+
+    interpolated = real * epsilon + fake * (1 - epsilon)
+    interpolated.requires_grad_(True)
+
+    mixed_scores = critic(interpolated, labels)
+
+    gradient = autograd.grad(
+        inputs=interpolated,
+        outputs=mixed_scores,
+        grad_outputs=torch.ones_like(mixed_scores),
+        create_graph=True,
+        retain_graph=True,
+    )[0]
+
+    gradient = gradient.view(gradient.shape[0], -1)
+    gradient_norm = gradient.norm(2, dim=1)
+    gp = torch.mean((gradient_norm - 1) ** 2)
+    return gp
