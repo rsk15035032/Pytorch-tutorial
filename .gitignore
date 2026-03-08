@@ -1,9 +1,11 @@
 # Ignoring dataset folder because of huge memory size.
 dataset/
 Celebrity Faces Dataset/
+data/
 
 # Ignoring the checkpoints 
 my_checkpoint.pth.tar
+checkpoints
 
 # Ignoring the python cache.
 __pycache__
