@@ -56,3 +56,5 @@
 28. [Implementation of Conditional GAN on WGAN with gradient penality from scratch.](GANs/ConditionalGAN/)]
 
 29. [Implementation of Patch GAN on UNET for Pix2Pix on Map dataset from scratch.](GANs/Pix2Pix/)]
+
+30. [Implementation of CycleGAN to horse to zebra datasets from scratch.](GANs/CycleGAN/)]
