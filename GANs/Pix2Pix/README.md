@@ -91,8 +91,6 @@ Pix2Pix/
 
 ---
 
-# Pix2Pix Image-to-Image Translation (Satellite → Map)
-
 ## Installation
 
 Clone the repository:
