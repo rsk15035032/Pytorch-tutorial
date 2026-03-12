@@ -2,10 +2,15 @@
 dataset/
 Celebrity Faces Dataset/
 data/
+celeb_dataset/
 
 # Ignoring the checkpoints 
 my_checkpoint.pth.tar
 checkpoints
+*.pth
+GANs\ProGAN\critic.pth
+GANs\ProGAN\generator.pth
+
 
 # Ignoring the python cache.
 __pycache__
