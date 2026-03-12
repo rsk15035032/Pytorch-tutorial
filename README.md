@@ -53,8 +53,10 @@
 
 27. [Implementation of Wasserstein Generative Adversarial Networks (WGANs) with gradient penality from scratch.](GANs/WGAN-GP/)
 
-28. [Implementation of Conditional GAN on WGAN with gradient penality from scratch.](GANs/ConditionalGAN/)]
+28. [Implementation of Conditional GAN on WGAN with gradient penality from scratch.](GANs/ConditionalGAN/)
 
-29. [Implementation of Patch GAN on UNET for Pix2Pix on Map dataset from scratch.](GANs/Pix2Pix/)]
+29. [Implementation of Patch GAN on UNET for Pix2Pix on Map dataset from scratch.](GANs/Pix2Pix/)
 
-30. [Implementation of CycleGAN to horse to zebra datasets from scratch.](GANs/CycleGAN/)]
+30. [Implementation of CycleGAN to horse to zebra datasets from scratch.](GANs/CycleGAN/)
+
+31. [Implementation of ProGAN on WGAN-gradient penality from scratch.](GANs/ProGAN/)
