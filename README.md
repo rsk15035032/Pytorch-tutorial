@@ -60,3 +60,5 @@
 30. [Implementation of CycleGAN to horse to zebra datasets from scratch.](GANs/CycleGAN/)
 
 31. [Implementation of ProGAN on WGAN-gradient penality from scratch.](GANs/ProGAN/)
+
+32. [Implementation of SRGAN from low to high image resolution from scratch.](GANs/SRGAN/)
