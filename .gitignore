@@ -4,6 +4,7 @@ Celebrity Faces Dataset/
 data/
 celeb_dataset/
 new_data/
+test_images/
 
 # Ignoring the checkpoints 
 my_checkpoint.pth.tar
