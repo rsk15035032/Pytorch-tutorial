@@ -62,3 +62,5 @@
 31. [Implementation of ProGAN on WGAN-gradient penality from scratch.](GANs/ProGAN/)
 
 32. [Implementation of SRGAN from low to high image resolution from scratch.](GANs/SRGAN/)
+
+33.  [Implementation of ESRGAN from low to high image resolution from scratch.](GANs/ESRGAN/)
