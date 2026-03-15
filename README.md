@@ -64,3 +64,5 @@
 32. [Implementation of SRGAN from low to high image resolution from scratch.](GANs/SRGAN/)
 
 33.  [Implementation of ESRGAN from low to high image resolution from scratch.](GANs/ESRGAN/)
+
+34. [Implementation of Baby name generator using RNN-LSTM from scratch.](TextGenerator/nameGenerator.py)
