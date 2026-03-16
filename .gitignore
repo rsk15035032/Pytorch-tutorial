@@ -5,6 +5,13 @@ data/
 celeb_dataset/
 new_data/
 test_images/
+torchText/part3/train_WMT_english.txt
+torchText/part3/train_WMT_german.txt
+torchText/part3/test.csv
+torchText/part3/test.json
+torchText/part3/train.csv
+torchText/part3/train.json
+
 
 # Ignoring the checkpoints 
 my_checkpoint.pth.tar
@@ -27,6 +34,7 @@ img*.png
 
 # Ignoring datasets for albumentation.
 cat_dogs/
+
 
 # Ignoring tensor-board cache logs.
 runs/
