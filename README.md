@@ -66,3 +66,5 @@
 33.  [Implementation of ESRGAN from low to high image resolution from scratch.](GANs/ESRGAN/)
 
 34. [Implementation of Baby name generator using RNN-LSTM from scratch.](TextGenerator/nameGenerator.py)
+
+35.  [Implementation of LSTM classifier, loading and saving file in torchtext from scratch.](torchText/part1/part1.py)
