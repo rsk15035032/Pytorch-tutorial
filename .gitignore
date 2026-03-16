@@ -32,3 +32,4 @@ cat_dogs/
 runs/
 logs/
 torchText/part1/.vector_cache
+.data

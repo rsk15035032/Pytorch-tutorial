@@ -67,4 +67,8 @@
 
 34. [Implementation of Baby name generator using RNN-LSTM from scratch.](TextGenerator/nameGenerator.py)
 
-35.  [Implementation of LSTM classifier, loading and saving file in torchtext from scratch.](torchText/part1/part1.py)
+35. [This project demonstrates a complete LSTM text classification pipeline in PyTorch using TorchText for dataset processing, batching, training, and model persistence.](torchText/part1/part1.py)
+
+36. [TorchText + SpaCy implementation for loading and preprocessing the Multi30k German–English dataset for sequence models like LSTM or Seq2Seq.](torchText/part2/part2.py)
+
+37. [TorchText-based English–German translation data pipeline with spaCy tokenization, vocabulary construction, and CPU/GPU-ready batch iterators.](torchText/part3/part3.py)
