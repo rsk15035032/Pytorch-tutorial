@@ -72,3 +72,5 @@
 36. [TorchText + SpaCy implementation for loading and preprocessing the Multi30k German–English dataset for sequence models like LSTM or Seq2Seq.](torchText/part2/part2.py)
 
 37. [TorchText-based English–German translation data pipeline with spaCy tokenization, vocabulary construction, and CPU/GPU-ready batch iterators.](torchText/part3/part3.py)
+
+38. [Implementation of a Seq2Seq (LSTM-based) neural machine translation model using PyTorch and TorchText for German-to-English translation with training, evaluation (BLEU score), and inference utilities.](seq2seq/machineTranslation)
