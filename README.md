@@ -74,3 +74,5 @@
 37. [TorchText-based English–German translation data pipeline with spaCy tokenization, vocabulary construction, and CPU/GPU-ready batch iterators.](torchText/part3/part3.py)
 
 38. [Implementation of a Seq2Seq (LSTM-based) neural machine translation model using PyTorch and TorchText for German-to-English translation with training, evaluation (BLEU score), and inference utilities.](seq2seq/machineTranslation)
+
+39. [Implementation of an attention-based Seq2Seq neural machine translation model using PyTorch with training, inference, BLEU evaluation, and checkpointing](seq2seq/machineTranslationWithAttention/)
