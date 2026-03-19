@@ -76,3 +76,5 @@
 38. [Implementation of a Seq2Seq (LSTM-based) neural machine translation model using PyTorch and TorchText for German-to-English translation with training, evaluation (BLEU score), and inference utilities.](seq2seq/machineTranslation)
 
 39. [Implementation of an attention-based Seq2Seq neural machine translation model using PyTorch with training, inference, BLEU evaluation, and checkpointing](seq2seq/machineTranslationWithAttention/)
+
+40. [Built a Transformer model from scratch using PyTorch with multi-head self-attention and encoder–decoder architecture.](Transformer/transformer.py)
