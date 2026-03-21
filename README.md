@@ -80,3 +80,7 @@
 40. [Built a Transformer model from scratch using PyTorch with multi-head self-attention and encoder–decoder architecture.](Transformer/transformer.py)
 
 41. [Implementation of a Transformer-based Seq2Seq model for German-to-English translation using PyTorch, trained on the Multi30k dataset with GPU/CPU support, tqdm training progress, TensorBoard logging, and BLEU score evaluation.](transformer_seq2seq/transformer_machinetranslation.py)
+
+42. [U-Net based image segmentation project implemented in PyTorch with custom dataset, training pipeline, and prediction visualization.](UNET_imageSegmentation)
+
+43. [A clean PyTorch implementation of Intersection over Union (IoU) to measure the overlap between predicted and ground-truth bounding boxes for object detection models.](Object_detection/metrics/IoU.py)
