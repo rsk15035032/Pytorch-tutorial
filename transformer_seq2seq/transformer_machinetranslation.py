@@ -1,13 +1,17 @@
 """
-Transformer Seq2Seq model on the Multi30k dataset (German -> English)
+FINAL CLEAN VERSION
+Transformer Seq2Seq model on Multi30k (German -> English)
 
-Optimized version:
+Features:
 - CPU friendly
 - GPU ready
-- tqdm progress bar added
-- Clean structure
-- Proper comments at the right place
+- tqdm progress bar
+- TensorBoard logging (runs/ folder always created)
+- Checkpoints always saved in project folder
+- Translation example every epoch
+- BLEU score at the end
 """
+
 import os
 import torch
 import torch.nn as nn
@@ -18,31 +22,34 @@ import spacy
 from torch.utils.tensorboard import SummaryWriter
 from torchtext.datasets import Multi30k
 from torchtext.data import Field, BucketIterator
-
 from utils import translate_sentence, bleu, save_checkpoint, load_checkpoint
 
 
 # =========================
-#  Device configuration
+# Create required folders
+# =========================
+BASE_DIR = os.path.dirname(__file__)
+RUNS_DIR = os.path.join(BASE_DIR, "runs")
+CHECKPOINT_DIR = os.path.join(BASE_DIR, "checkpoints")
+
+os.makedirs(RUNS_DIR, exist_ok=True)
+os.makedirs(CHECKPOINT_DIR, exist_ok=True)
+
+
+# =========================
+# Device
 # =========================
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
 
 
 # =========================
-#  Load spacy tokenizer
+# Load spacy tokenizers
 # =========================
 spacy_eng = spacy.load("en_core_web_sm")
 spacy_ger = spacy.load("de_core_news_sm")
 
 
-# ----------------------------------------------------------
-# Importing the data folder to avoid the datasets
-# ----------------------------------------------------------
-DATA_PATH = os.path.join(os.path.dirname(__file__), "data")
-
-
-# Tokenizers
 def tokenize_ger(text):
     return [tok.text for tok in spacy_ger.tokenizer(text)]
 
@@ -52,28 +59,29 @@ def tokenize_eng(text):
 
 
 # =========================
-#  Define Fields
+# Fields
 # =========================
 german = Field(tokenize=tokenize_ger, lower=True, init_token="<sos>", eos_token="<eos>")
 english = Field(tokenize=tokenize_eng, lower=True, init_token="<sos>", eos_token="<eos>")
 
 
 # =========================
-#  Load dataset
+# Load dataset
 # =========================
+DATA_PATH = os.path.join(BASE_DIR, "data")
+
 train_data, valid_data, test_data = Multi30k.splits(
     exts=(".de", ".en"),
     fields=(german, english),
     root=DATA_PATH
 )
 
-# Build vocabularies
 german.build_vocab(train_data, max_size=10000, min_freq=2)
 english.build_vocab(train_data, max_size=10000, min_freq=2)
 
 
 # =========================
-#  Transformer Model
+# Transformer Model
 # =========================
 class Transformer(nn.Module):
     def __init__(
@@ -89,17 +97,14 @@ class Transformer(nn.Module):
         dropout,
         max_len,
     ):
-        super(Transformer, self).__init__()
+        super().__init__()
 
-        # Word embeddings
         self.src_word_embedding = nn.Embedding(src_vocab_size, embed_size)
         self.trg_word_embedding = nn.Embedding(trg_vocab_size, embed_size)
 
-        # Positional embeddings
         self.src_position_embedding = nn.Embedding(max_len, embed_size)
         self.trg_position_embedding = nn.Embedding(max_len, embed_size)
 
-        # Transformer block (PyTorch built-in)
         self.transformer = nn.Transformer(
             embed_size,
             num_heads,
@@ -109,37 +114,32 @@ class Transformer(nn.Module):
             dropout,
         )
 
-        # Final output layer
         self.fc_out = nn.Linear(embed_size, trg_vocab_size)
-
         self.dropout = nn.Dropout(dropout)
         self.src_pad_idx = src_pad_idx
 
-    # Create mask to ignore padding tokens
     def make_src_mask(self, src):
         return (src.transpose(0, 1) == self.src_pad_idx)
 
     def forward(self, src, trg):
 
-        src_seq_length, batch_size = src.shape
-        trg_seq_length, batch_size = trg.shape
+        src_len, batch_size = src.shape
+        trg_len, batch_size = trg.shape
 
-        # Create position ids
         src_positions = (
-            torch.arange(0, src_seq_length)
+            torch.arange(0, src_len)
             .unsqueeze(1)
-            .expand(src_seq_length, batch_size)
+            .expand(src_len, batch_size)
             .to(device)
         )
 
         trg_positions = (
-            torch.arange(0, trg_seq_length)
+            torch.arange(0, trg_len)
             .unsqueeze(1)
-            .expand(trg_seq_length, batch_size)
+            .expand(trg_len, batch_size)
             .to(device)
         )
 
-        # Add word embedding + positional embedding
         embed_src = self.dropout(
             self.src_word_embedding(src) + self.src_position_embedding(src_positions)
         )
@@ -148,11 +148,9 @@ class Transformer(nn.Module):
             self.trg_word_embedding(trg) + self.trg_position_embedding(trg_positions)
         )
 
-        # Create masks
         src_padding_mask = self.make_src_mask(src).to(device)
-        trg_mask = self.transformer.generate_square_subsequent_mask(trg_seq_length).to(device)
+        trg_mask = self.transformer.generate_square_subsequent_mask(trg_len).to(device)
 
-        # Transformer forward
         out = self.transformer(
             embed_src,
             embed_trg,
@@ -164,9 +162,9 @@ class Transformer(nn.Module):
 
 
 # =========================
-#  Hyperparameters
+# Hyperparameters
 # =========================
-num_epochs = 20
+num_epochs = 5
 learning_rate = 3e-4
 batch_size = 32
 
@@ -185,7 +183,7 @@ src_pad_idx = german.vocab.stoi["<pad>"]
 
 
 # =========================
-#  Data loaders
+# Data loaders
 # =========================
 train_iterator, valid_iterator, test_iterator = BucketIterator.splits(
     (train_data, valid_data, test_data),
@@ -197,7 +195,7 @@ train_iterator, valid_iterator, test_iterator = BucketIterator.splits(
 
 
 # =========================
-#  Model, optimizer, loss
+# Model / Optimizer / Loss
 # =========================
 model = Transformer(
     embedding_size,
@@ -217,12 +215,12 @@ optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 pad_idx = english.vocab.stoi["<pad>"]
 criterion = nn.CrossEntropyLoss(ignore_index=pad_idx)
 
-writer = SummaryWriter("runs/transformer_loss")
+writer = SummaryWriter(RUNS_DIR)
 step = 0
 
 
 # =========================
-#  Training loop with tqdm
+# Training loop
 # =========================
 for epoch in range(num_epochs):
 
@@ -236,10 +234,8 @@ for epoch in range(num_epochs):
         src = batch.src.to(device)
         trg = batch.trg.to(device)
 
-        # Forward pass
         output = model(src, trg[:-1, :])
 
-        # Reshape for loss calculation
         output = output.reshape(-1, output.shape[2])
         trg = trg[1:].reshape(-1)
 
@@ -248,56 +244,55 @@ for epoch in range(num_epochs):
         loss = criterion(output, trg)
         loss.backward()
 
-        # Gradient clipping (very important for Transformer stability)
         torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1)
-
         optimizer.step()
 
         epoch_loss += loss.item()
 
-        # Update tqdm bar
         loop.set_description(f"Epoch [{epoch+1}/{num_epochs}]")
         loop.set_postfix(loss=loss.item())
 
-        writer.add_scalar("Training Loss", loss.item(), global_step=step)
+        writer.add_scalar("Training Loss", loss.item(), step)
         step += 1
 
     print(f"Epoch Loss: {epoch_loss/len(train_iterator):.4f}")
 
+    # =========================
+    # Save checkpoint every epoch
+    # =========================
+    checkpoint_path = os.path.join(CHECKPOINT_DIR, f"checkpoint_epoch_{epoch+1}.pth.tar")
 
-# =========================
-#  BLEU Score Evaluation
-# =========================
-score = bleu(test_data[1:100], model, german, english, device)
-print(f"BLEU score: {score*100:.2f}")
-
-
-# ======================
-# Translation Example
-# ======================
-model.eval()
-
-example_sentence = "ein boot mit mehreren männern darauf wird von einem großen pferdegespann ans ufer gezogen."
-
-translated_sentence = translate_sentence(
-    model,
-    example_sentence,
-    german,
-    english,
-    device,
-    max_length=50,
+    torch.save(
+        {
+            "model_state_dict": model.state_dict(),
+            "optimizer_state_dict": optimizer.state_dict(),
+        },
+        checkpoint_path,
     )
 
-print("\nExample translation:")
-print("German :", example_sentence)
-print("English:", translated_sentence)
+    print("Checkpoint saved:", checkpoint_path)
 
-# Save checkpoint
-checkpoint = {
-        "state_dict": model.state_dict(),
-        "optimizer": optimizer.state_dict(),
-    }
-save_checkpoint(checkpoint)
+
+       # ======================================================
+    # EVALUATION (Sample Translation)
+    # ======================================================
+    model.eval()
+    test_sentence = "ein boot mit mehreren männern darauf wird von einem großen pferdegespann ans ufer gezogen."
+
+    translated = translate_sentence(model, test_sentence, german, english, device)
+    print("Sample Translation:", translated)
+
+# Close TensorBoard writer
+writer.close()
+
+
+# ==========================================================
+# BLEU SCORE EVALUATION
+# ==========================================================
+score = bleu(test_data[:100], model, german, english, device)
+print(f"\nBLEU Score: {score*100:.2f}")
+
+
 
 
 
