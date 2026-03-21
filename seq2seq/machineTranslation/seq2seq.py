@@ -215,7 +215,7 @@ for epoch in range(num_epochs):
     test_sentence = "ein boot mit mehreren männern darauf wird von einem großen pferdegespann ans ufer gezogen."
 
     translated = translate_sentence(model, test_sentence, german, english, device)
-    print("Sample Translation:", translated)
+    print("Sample Translation:", translated) 
 
 # ==========================================================
 # BLEU SCORE EVALUATION
