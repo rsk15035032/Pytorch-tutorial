@@ -88,3 +88,5 @@
 44. [Removes overlapping bounding boxes using IoU threshold and confidence score to keep only the best predictions.](Object_detection/metrics/nms.py)
 
 45. [Computes Mean Average Precision (mAP) by matching predicted and ground-truth bounding boxes using IoU and integrating the precision–recall curve.](Object_detection/metrics/mAP.py)
+
+46. [End-to-end YOLOv1 object detection implementation in PyTorch including model, loss, dataset, and training pipeline.](Object_detection/YOLOv1)
