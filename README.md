@@ -84,3 +84,7 @@
 42. [U-Net based image segmentation project implemented in PyTorch with custom dataset, training pipeline, and prediction visualization.](UNET_imageSegmentation)
 
 43. [A clean PyTorch implementation of Intersection over Union (IoU) to measure the overlap between predicted and ground-truth bounding boxes for object detection models.](Object_detection/metrics/IoU.py)
+
+44. [Removes overlapping bounding boxes using IoU threshold and confidence score to keep only the best predictions.](Object_detection/metrics/nms.py)
+
+45. [Computes Mean Average Precision (mAP) by matching predicted and ground-truth bounding boxes using IoU and integrating the precision–recall curve.](Object_detection/metrics/mAP.py)
