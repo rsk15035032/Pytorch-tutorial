@@ -43,8 +43,8 @@ PIN_MEMORY = True if DEVICE == "cuda" else False
 LOAD_MODEL = False
 LOAD_MODEL_FILE = "overfit.pth.tar"
 
-IMG_DIR = "data/images"
-LABEL_DIR = "data/labels"
+IMG_DIR = "Object_detection/YOLOv1/data/images"
+LABEL_DIR = "Object_detection/YOLOv1/data/labels"
 
 # -------------------------------
 # Image Transform
@@ -123,14 +123,14 @@ def main():
     # Dataset
     # -------------------------------
     train_dataset = VOCDataset(
-        csv_file="data/100examples.csv",
+        csv_file="Object_detection/YOLOv1/data/100examples.csv",
         transform=transform,
         img_dir=IMG_DIR,
         label_dir=LABEL_DIR,
     )
 
     test_dataset = VOCDataset(
-        csv_file="data/test.csv",
+        csv_file="Object_detection/YOLOv1/data/test.csv",
         transform=transform,
         img_dir=IMG_DIR,
         label_dir=LABEL_DIR,
@@ -196,6 +196,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-import os
-print(os.path.exists("data/100examples.csv"))
