@@ -90,3 +90,5 @@
 45. [Computes Mean Average Precision (mAP) by matching predicted and ground-truth bounding boxes using IoU and integrating the precision–recall curve.](Object_detection/metrics/mAP.py)
 
 46. [End-to-end YOLOv1 object detection implementation in PyTorch including model, loss, dataset, and training pipeline.](Object_detection/YOLOv1)
+
+47. [Optimized YOLOv3 (PyTorch) project with multi-scale detection, custom loss, and Pascal VOC training](Object_detection/YOLOv3)
