@@ -48,7 +48,7 @@ person, car, dog, cat, bus, bicycle, horse, bottle, chair, train, and more.
 
 ## Installation
 
-git clone https://github.com/your-username/yolov3-pytorch.git
+git clone https://github.com/rsk15035032/Pytorch-tutorial/tree/main/Object_detection/YOLOv3
 cd yolov3-pytorch
 pip install -r requirements.txt
 python train.py
