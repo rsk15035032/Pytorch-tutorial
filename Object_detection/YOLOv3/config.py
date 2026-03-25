@@ -17,7 +17,7 @@ from utils import seed_everything
 # =========================================================
 # GENERAL SETTINGS
 # =========================================================
-DATASET = "PASCAL_VOC"        # Change to COCO if needed
+DATASET = "Object_detection/YOLOv3/data"        # Change to COCO if needed
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Uncomment if you want reproducible results
@@ -41,7 +41,7 @@ S = [IMAGE_SIZE // 32, IMAGE_SIZE // 16, IMAGE_SIZE // 8]
 
 PIN_MEMORY = True if DEVICE == "cuda" else False
 
-LOAD_MODEL = True
+LOAD_MODEL = False
 SAVE_MODEL = True
 CHECKPOINT_FILE = "checkpoint.pth.tar"
 
