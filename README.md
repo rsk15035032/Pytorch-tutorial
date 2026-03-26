@@ -94,3 +94,5 @@
 47. [Optimized YOLOv3 (PyTorch) project with multi-scale detection, custom loss, and Pascal VOC training](Object_detection/YOLOv3)
 
 48. [A simple and optimized Convolutional Neural Network (CNN) implemented in PyTorch for MNIST digit classification with GPU and mixed-precision (FP16) support.](QuickTips/fp16.py)
+
+49. [Beginner-friendly PyTorch CNN project demonstrating a clean training loop with real-time progress tracking using tqdm.](QuickTips/progress_bar.py)
