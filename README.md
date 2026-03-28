@@ -148,7 +148,14 @@ git clone https://github.com/your-username/Pytorch-tutorial.git
 cd Pytorch-tutorial
 pip install -r requirements.txt
 
+```
+## Usage
 
+Run any file directly
+```bash
+python CNN/cnn.py
+
+```
 ## Author
 
 Ravi Shankar Kumar  
