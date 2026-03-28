@@ -144,7 +144,7 @@ Everything is implemented from scratch using PyTorch with clean and beginner-fri
 ## Installation
 
 ```bash
-git clone https://github.com/your-username/Pytorch-tutorial.git
+git clone https://github.com/rsk15035032/Pytorch-tutorial.git
 cd Pytorch-tutorial
 pip install -r requirements.txt
 
