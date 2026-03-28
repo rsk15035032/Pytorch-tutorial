@@ -100,3 +100,7 @@
 50. [Utility function to make PyTorch experiments fully reproducible by fixing random seeds across Python, NumPy, CPU, and GPU.](QuickTips/set_seeds.py)
 
 51. [Script to calculate mean and standard deviation of image datasets (CIFAR-10) for deep learning normalization.](QuickTips/std_mean.py)
+
+52. [A clean and beginner-friendly Convolutional Neural Network (CNN) implementation in PyTorch with proper weight initialization and clear architecture design.](QuickTips/weight_init.py)
+
+53. [A clean PyTorch implementation of MNIST digit classification using a simple neural network with learning-rate scheduling and a complete training pipeline.](QuickTips/lr_schedular.py)
